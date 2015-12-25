@@ -1,19 +1,38 @@
-# Duty
+Duty
+=====
 
-To start your Phoenix app:
+[![Build Status](https://travis-ci.org/lpil/duty.svg?branch=master)](https://travis-ci.org/lpil/duty)
 
-  1. Install dependencies with `mix deps.get`
-  2. Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  3. Start Phoenix endpoint with `mix phoenix.server`
+## Setup
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+You'll need Elixir, Node, and Postgresql installed.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+```sh
+# Install Elixir deps
+mix deps.get
+# Install Javascript deps
+npm install
 
-## Learn more
+# Start the database
+pg_ctl start
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: http://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+# Create and migrate database
+mix ecto.create
+mix ecto.migrate
+mix ecto.seed
+MIX_ENV=test mix ecto.create
+MIX_ENV=test mix ecto.migrate
+
+# Run the tests
+mix test.watch
+
+# Run the server
+mix phoenix.server
+```
+
+You may need to ensure the `postgres` database user has the password
+`postgres`, and that they have the required permissions.
+
+```sql
+CREATE ROLE postgres LOGIN;
+```
