@@ -17,11 +17,8 @@ npm install
 pg_ctl start
 
 # Create and migrate database
-mix ecto.create
-mix ecto.migrate
-mix ecto.seed
-MIX_ENV=test mix ecto.create
-MIX_ENV=test mix ecto.migrate
+mix ecto.setup
+MIX_ENV=test mix ecto.setup
 
 # Run the tests
 mix test.watch
