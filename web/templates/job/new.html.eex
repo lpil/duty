@@ -1,0 +1,27 @@
+<h4>Create a new Item</h4>
+
+<%= form_for @changeset, job_path(@conn, :create), fn f -> %>
+<%= if @changeset.action do %>
+  <div class="alert--danger">
+    <p>Oops, something went wrong! Please check the errors below:</p>
+    <ul>
+      <%= for {attr, message} <- f.errors do %>
+        <li><%= humanize(attr) %> <%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div>
+  <div>
+    <%= text_input f, :name %>
+    <%= label f, :name, "Display Name" %>
+  </div>
+</div>
+
+<%= submit "Submit" %>
+<% end %>
+
+<nav class="foot-nav">
+  <%= link "Back", to: job_path(@conn, :index) %>
+</nav>

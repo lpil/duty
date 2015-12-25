@@ -15,13 +15,11 @@ defmodule Duty.Router do
   end
 
   scope "/", Duty do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
     get "/", PageController, :index
-  end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Duty do
-  #   pipe_through :api
-  # end
+    resources "jobs", JobController,
+      only: ~w(new create index)a
+  end
 end
