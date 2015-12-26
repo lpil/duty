@@ -20,6 +20,9 @@ defmodule Duty.Router do
     get "/", PageController, :index
 
     resources "jobs", JobController,
-      only: ~w(new create index)a
+      only: ~w(index new create)a
+
+    resources "people", PersonController,
+      only: ~w(index)a
   end
 end

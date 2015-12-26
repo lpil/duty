@@ -17,7 +17,7 @@ defmodule Duty.JobControllerTest do
   end
 
 
-  test "GET index renders list of items" do
+  test "GET index renders list of jobs" do
     %Job{} |> Job.changeset(@attrs) |> Repo.insert!
     conn = get conn, job_path(conn, :index)
     body = html_response(conn, 200)
