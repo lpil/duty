@@ -1,0 +1,10 @@
+h3 Jobs
+
+ul
+  = for job <- @jobs do
+    li
+      = job.name
+
+nav.foot-nav
+  = link "New",  to: job_path(@conn, :new)
+  = link "Back", to: "/"

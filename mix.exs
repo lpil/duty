@@ -30,18 +30,20 @@ defmodule Duty.Mixfile do
     [
       # Web framework
       {:phoenix, "~> 1.0.4"},
+      # Web server
+      {:cowboy, "~> 1.0"},
+
       # Database wrapper
       {:phoenix_ecto, "~> 1.1"},
       # Database connector
       {:postgrex, ">= 0.0.0"},
+
       # HTML view layer
       {:phoenix_html, "~> 2.1"},
+      # Slim HTML templates
+      {:phoenix_slim, "~> 0.4"},
       # Frontend refreshing
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      # Web server
-      {:cowboy, "~> 1.0"},
-      # Password hashing
-      # {:comeonin, "~> 1.4"},
 
       # Style linting
       {:dogma, "~> 0.0"},
