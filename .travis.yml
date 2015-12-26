@@ -17,3 +17,4 @@ script:
   - mix compile --warnings-as-errors
   - mix test
   - mix dogma
+  - mix run priv/repo/seeds_dev.exs

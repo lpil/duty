@@ -13,7 +13,7 @@ names = ~w(
   Teddy Alex Susan Maciej Daria Michelle Tom Richard Caff
   Lauren Danny Roxie Dave Nicholas Tess Elaina Homer Adam
   Tamra Henry Tariq Ali Yasmine Becky Jordon Spencer Gary
-t )
+)
 for name <- names do
   email = String.downcase(name) <> "@example.com"
   %Person{ name: name, email: email } |> Repo.insert!
