@@ -14,9 +14,12 @@ defmodule Duty.Mixfile do
   end
 
   def application do
-    [mod: {Duty, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+    [
+      mod: {Duty, []},
+      applications: ~w(
+        phoenix phoenix_html cowboy logger phoenix_ecto postgrex
+      )a
+    ]
   end
 
   # Specifies which paths to compile per environment.
@@ -49,7 +52,8 @@ defmodule Duty.Mixfile do
 
   defp aliases do
     [
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.seed":  ["run priv/repo/seeds.exs"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
     ]
   end
