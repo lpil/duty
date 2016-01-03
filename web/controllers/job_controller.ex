@@ -29,7 +29,7 @@ defmodule Duty.JobController do
 
       {:error, changeset} ->
         conn
-        |> render "new.html", changeset: changeset
+        |> render("new.html", changeset: changeset)
     end
   end
 end
